@@ -1,9 +1,23 @@
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import PayPal from "./components/Paypal";
 
 function App() {
+  const [checkout, setCheckOut] = useState(false);
+
   return (
     <div className="App">
-      
+      {checkout ? (
+        <PayPal />
+      ) : (
+        <button
+          onClick={() => {
+            setCheckOut(true);
+          }}
+        >
+          Checkout
+        </button>
+      )}
     </div>
   );
 }
